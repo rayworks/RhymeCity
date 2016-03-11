@@ -19,6 +19,7 @@ import retrofit.RxJavaCallAdapterFactory;
 )
 public final class AppModule {
 
+    public static final String URL = "http://10.128.56.123:5059"; //"https://wordsapiv1.p.mashape.com";
     private final String apiKey;
 
     public AppModule(String apiKey) {
@@ -39,7 +40,7 @@ public final class AppModule {
         return new Retrofit.Builder()
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://wordsapiv1.p.mashape.com")
+                .baseUrl(URL)
                 .client(client)
                 .build()
                 .create(ApiService.class);
